@@ -12,7 +12,7 @@ esac
 }
 
 if [ ! -f .patch_settings ]; then
-	printf "Couldn't file settings files, exiting\n"
+	printf "Couldn't find settings files, exiting\n"
 	exit -1
 fi
 
