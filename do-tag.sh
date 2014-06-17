@@ -18,15 +18,16 @@ fi
 
 source .patch_settings
 
-if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
+if [ -z "$1" ] || [ -z "$2" ]; then
 	printf "Usage $0 <tag version> <tag message>\n \
 		Should only be used in dev branch\n"
 	exit 1
 fi
 
+printf "Creating tag $1 with message \"$2\"\n"
 git tag -a $1 -m "$2"
 
-if yn "Push new tag?"
+if yn "Push new tag?"; then
 	git push --tags
 fi
 
