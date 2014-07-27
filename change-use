@@ -16,6 +16,11 @@ fi
 
 FILE='/etc/portage/package.use'
 
+if [ -z `grep $1 $FILE` ];then
+	printf "Package $1 already exists in $FILE\n"
+	exit -1
+fi
+
 printf ">=" >> $FILE
 for arg in "$*"; do printf "$arg" >> $FILE; done
 printf "\n" >> $FILE
